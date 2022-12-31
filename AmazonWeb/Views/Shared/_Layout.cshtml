@@ -1,0 +1,650 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AmazonWeb</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/lib/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="~/lib/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/lib/owlcarousel/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/lib/fontawesome-free-5.15.3-web/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Grid.css">
+    <link rel="stylesheet" href="~/css/site.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light header-navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-controller= "Home" asp-action = "Index">
+                    <img src="~/img/logo.png" alt="photo" class="header-logo">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 " id="header-navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link " asp-controller="Location" asp-action="Index">
+                                <div class="location">
+                                    <i class="ti-location-pin"></i>
+                                    <span>VIET NAM</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+
+                            <form class="d-flex condition-search-wrap">
+                                <select name="selection" id="condition-search" class="">
+                                    <option selected="selected" value="search-alias=aps">All Departments</option>
+                                    <option value="search-alias=arts-crafts-intl-ship">Arts &amp; Crafts</option>
+                                    <option value="search-alias=automotive-intl-ship">Automotive</option>
+                                    <option value="search-alias=baby-products-intl-ship">Baby</option>
+                                    <option value="search-alias=beauty-intl-ship">Beauty &amp; Personal Care</option>
+                                </select>
+
+                                <input class="form-control me-2 form-search" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success btn-search" type="submit"><i class="ti-search"></i></button>
+                            </form>
+                        </li>
+
+                        <li class="nav-item dropdown nav-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="" aria-expanded="false">
+                                <img style="width: 40px;" src="~/img/flag.png" alt="Photo">
+                            </a>
+                            <div class="dropdown-menu nav-dropdown-menu form-check form-language" aria-labelledby="navbarDropdown">
+                                <div class="wrap-language">
+                                    <span class="change-language">Change language</span>
+                                    <a href="#" class="change-language-learn-more">Learn more</a>
+                                </div>
+                                <hr class="dropdown-divider">
+
+                                <div class="wrap-option-change-language">
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="flexRadioDefault" type="radio" id="lg-english">
+                                        <label for="lg-english">English</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="flexRadioDefault" type="radio" id="lg-vietnam">
+                                        <label for="lg-vietnam">VietNam</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="flexRadioDefault" type="radio" id="lg-china">
+                                        <label for="lg-china">China</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" name="flexRadioDefault" type="radio" id="lg-japan">
+                                        <label for="lg-japan">Japan</label>
+                                    </div>
+                                </div>
+
+                                <hr class="dropdown-divider">
+
+                                <div class="wrap-currency">
+                                    <span class="change-currency">Change currency</span>
+                                    <a href="#" class="change-currency-learn-more">Learn more</a>
+                                </div>
+
+                                <div class="wrap-change-currency">
+                                    <span class="currency">$ - USD - U.S. Dollar</span>
+                                    <a href="#" class="change-currency">Change</a>
+                                </div>
+
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item dropdown nav-dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="" aria-expanded="false">
+                                <span class="lable-account">Account & Lists</span>
+                            </a>
+                            <div class="dropdown-menu nav-dropdown-menu wrap-account-list" aria-labelledby="navbarDropdown">
+                                <div class="wrap-user">
+                                    <a class="btn btn-Sign-in" asp-controller="Login" asp-action="Index">Sign in</a>
+                                    <span class="lable-new-customer">New customer?</span>
+                                    <a asp-controller="Register" asp-action="Register" class ="link-register">Start here.</a>
+                                </div>
+
+                                <hr class="dropdown-divider">
+
+                                <div class="row ">
+                                    <div class="col-6 wrap-your-list">
+                                        <h5 class="title-your-list">YOUR LIST</h5>
+                                        <ul class="account-list your-list">
+                                            <li class="your-list-item"><a href="#">Creat a List</a></li>
+                                            <li class="your-list-item"><a href="#">Find a List or Registry</a></li>
+                                            <li class="your-list-item"><a href="#">AmazoneSmile Charity Lists</a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="col-6 wrap-your-account">
+                                        <h5 class="title-your-account">YOUR ACCOUNT</h5>
+                                        <ul class="account-list your-account">
+                                            <li class="your-account-item"><a href="#">Account</a></li>
+                                            <li class="your-account-item"><a href="#">Orders</a></li>
+                                            <li class="your-account-item"><a href="#">Recommendations</a></li>
+                                            <li class="your-account-item"><a href="#">Browsing History</a></li>
+                                            <li class="your-account-item"><a href="#">Watchlist</a></li>
+                                            <li class="your-account-item"><a href="#">Video Purchases & Rentals</a></li>
+                                            <li class="your-account-item"><a href="#">Kindle Unlimited</a></li>
+                                            <li class="your-account-item"><a href="#">Content & Devices</a></li>
+                                            <li class="your-account-item"><a href="#">Membership & Subscriptions</a></li>
+                                            <li class="your-account-item"><a href="#">Music Library</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Return & Order</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><i class="ti-shopping-cart"></i></a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light nav-main">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse wrap-list-nav-main" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+
+                            <a class="nav-link" href="#offcanvasAll" data-bs-toggle="offcanvas" role="button"><i class="ti-menu"></i> All</a>
+
+                            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasAll">
+                                <div class="offcanvas-header offcanvas-header-cs">
+                                    <a asp-controller="Login" asp-action="Index" class="offcanvas-title offcanvas-title-cs">
+                                        <h3>Hello, Sign in</h3>
+                                    </a>
+
+                                    <div class="ti-close icon-close" data-bs-dismiss="offcanvas"></div>
+                                </div>
+                                <div class="offcanvas-body hmenu-body">
+
+                                    <div class="wrap-hmenu wrap-main-menu">
+                                        <div class="hmenu-item">
+
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <h4 class="hmenu-title-item">Digital Content & Devices</h4>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item" data-menu-id='1'>
+                                                    <a class="nav-link link-offcanvas" href="#">Amazon Music</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item" data-menu-id='2'>
+                                                    <a class="nav-link link-offcanvas" href="#">Kindle E- reader & Books</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Appstore for Android</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+
+
+                                        <div class="hmenu-item">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <h4 class="hmenu-title-item">Shop By Department</h4>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Electronics</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Computers</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Smart Home</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Arts & Crafts</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item item-see-all">
+                                                    <a class="nav-link link-offcanvas" href="#">See All</a>
+                                                    <i class="ti-angle-down"></i>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="nav flex-column compressed">
+                                                <li class="nav-item">
+                                                    <hr class="dropdown-divider divider-comprees">
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Automotive</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Baby</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Beauty and personal care</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Women's Fashion</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Men's Fashion</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+
+                                                <li class="nav-item  item-see-less">
+                                                    <a class="nav-link link-offcanvas" href="#">See Less</a>
+                                                    <i class="ti-angle-up"></i>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+
+                                        <div class="hmenu-item">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <h4 class="hmenu-title-item">Programs & Features</h4>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Gift Cards</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">#FoundItOnAmazon</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Amazon Live</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">International Shopping</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item  item-see-all">
+                                                    <a class="nav-link link-offcanvas" href="#">See All</a>
+                                                    <i class="ti-angle-down"></i>
+                                                </li>
+                                            </ul>
+
+                                            <ul class="nav flex-column compressed">
+                                                <li class="nav-item">
+                                                    <hr class="dropdown-divider divider-comprees">
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Amazon Second Chance</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Amazon Explore</a>
+                                                    <i class="ti-angle-right"></i>
+                                                </li>
+
+                                                <li class="nav-item item-see-less">
+                                                    <a class="nav-link link-offcanvas" href="#">See Less</a>
+                                                    <i class="ti-angle-up"></i>
+                                                </li>
+                                            </ul>
+
+
+
+                                        </div>
+
+                                        <div class="hmenu-item">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <h4 class="hmenu-title-item">Help & Settings</h4>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Your Account</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Language</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Location</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Customer Service</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Sign in</a>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="wrap-hmenu menu-detail">
+                                        <div class="hmenu-item hmenu-item-top" data-menu-id='1'>
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item btn-Main-menu">
+                                                    <i class="ti-arrow-left"></i>
+                                                    <h4 class="lable-btn-Main-menu">MAIN MEMU</h4>
+                                                </li>
+                                                <li class="nav-item ">
+                                                    <h4 class="hmenu-title-item">Help & Settings</h4>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Your Account</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Language</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Location</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Customer Service</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Sign in</a>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+
+                                        <div class="hmenu-item" data-menu-id='2'>
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item ">
+                                                    <h4 class="hmenu-title-item">Help & Settings</h4>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Your Account</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Language</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Location</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Customer Service</a>
+                                                </li>
+                                                <li class="nav-item hmenu-wrap-item">
+                                                    <a class="nav-link link-offcanvas" href="#">Sign in</a>
+                                                </li>
+                                            </ul>
+
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#" >Today's Deals</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Customer Service</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Gift Cards</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Registry</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sell</a>
+                        </li>
+                    </ul>
+                    <a href="#" class="nav-main-text">Amazon's response to COVID-19</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+
+        @RenderBody()
+
+    </div>
+
+    <footer>
+        <div class="top-footer">
+            <div class="space-footer">
+            </div>
+            <hr class="dropdown-divider divider-footer">
+            <button class="btn btn-Sign-in btn-Sign-in-footer">Sign in to see personalized recommendations</button>
+        </div>
+        <div class="bottom-footer">
+            <a class="back-to-top" href="#">
+                <span>Back to top</span>
+            </a>
+            <div class="row accessibility">
+                <div class="col-3">
+                    <h3 class="navFooterColHead">Get to Know Us</h3>
+                    <ul class="navFooterlist">
+                        <li class="nav_first">
+                            <a href="https://www.amazon.jobs" class="nav_a">Careers</a>
+                        </li>
+                        <li>
+                            <a href="https://blog.aboutamazon.com/?utm_source=gateway&amp;utm_medium=footer" class="nav_a">Blog</a>
+                        </li>
+                        <li>
+                            <a href="https://www.aboutamazon.com/?utm_source=gateway&amp;utm_medium=footer" class="nav_a">About Amazon</a>
+                        </li>
+                        <li>
+                            <a href="https://www.amazon.com/ir" class="nav_a">Investor Relations</a>
+                        </li>
+                        <li>
+                            <a href="/gp/browse.html?node=2102313011&amp;ref_=footer_devices" class="nav_a">Amazon Devices</a>
+                        </li>
+                        <li class="nav_last ">
+                            <a href="https://www.aboutamazon.com/amazon-fulfillment-center-tours?utm_source=gateway&amp;utm_medium=footer&amp;utm_campaign=fctours" class="nav_a">Amazon Tours</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <h3 class="navFooterColHead">Make Money with Us</h3>
+                    <ul class="navFooterlist">
+                        <li class="nav_first">
+                            <a href="https://services.amazon.com/sell.html?ld=AZFSSOA&amp;ref_=footer_soa" class="nav_a">Sell products on Amazon</a>
+                        </li>
+                        <li>
+                            <a href="https://services.amazon.com/amazon-business.html?ld=usb2bunifooter&amp;ref_=footer_b2b" class="nav_a">Sell on Amazon Business</a>
+                        </li>
+                        <li>
+                            <a href="https://developer.amazon.com" class="nav_a">Sell apps on Amazon</a>
+                        </li>
+                        <li>
+                            <a href="https://affiliate-program.amazon.com/" class="nav_a">Become an Affiliate</a>
+                        </li>
+                        <li>
+                            <a href="https://advertising.amazon.com/?ref=ext_amzn_ftr" class="nav_a">Advertise Your Products</a>
+                        </li>
+                        <li>
+                            <a href="/gp/seller-account/mm-summary-page.html?ld=AZFooterSelfPublish&amp;topic=200260520&amp;ref_=footer_publishing" class="nav_a">Self-Publish with Us</a>
+                        </li>
+                        <li>
+                            <a href="http://go.thehub-amazon.com/amazon-hub-locker" class="nav_a">Host an Amazon Hub</a>
+                        </li>
+                        <li class="nav_last nav_a_carat">
+                            <span class="nav_a_carat">›</span><a href="/b/?node=18190131011&amp;ld=AZUSSOA-seemore&amp;ref_=footer_seemore" class="nav_a">See More Make Money with Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-3">
+                    <h3 class="navFooterColHead">Amazon Payment Products</h3>
+                    <ul class="navFooterlist">
+                        <li class="nav_first">
+                            <a href="/dp/B07984JN3L?plattr=ACOMFO&amp;ie=UTF-8" class="nav_a">Amazon Business Card</a>
+                        </li>
+                        <li>
+                            <a href="/gp/browse.html?node=16218619011&amp;ref_=footer_swp" class="nav_a">Shop with Points</a>
+                        </li>
+                        <li>
+                            <a href="/gp/browse.html?node=10232440011&amp;ref_=footer_reload_us" class="nav_a">Reload Your Balance</a>
+                        </li>
+                        <li class="nav_last ">
+                            <a href="/gp/browse.html?node=388305011&amp;ref_=footer_tfx" class="nav_a">Amazon Currency Converter</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-3">
+                    <h3 class="navFooterColHead">Let Us Help You</h3>
+                    <ul class="navFooterlist">
+                        <li class="nav_first">
+                            <a href="/gp/help/customer/display.html?nodeId=GDFU3JS5AL6SYHRD&amp;ref_=footer_covid" class="nav_a">Amazon and COVID-19</a>
+                        </li>
+                        <li>
+                            <a href="https://www.amazon.com/gp/css/homepage.html?ref_=footer_ya" class="nav_a">Your Account</a>
+                        </li>
+                        <li>
+                            <a href="https://www.amazon.com/gp/css/order-history?ref_=footer_yo" class="nav_a">Your Orders</a>
+                        </li>
+                        <li>
+                            <a href="/gp/help/customer/display.html?nodeId=468520&amp;ref_=footer_shiprates" class="nav_a">Shipping Rates &amp; Policies</a>
+                        </li>
+                        <li>
+                            <a href="/gp/css/returns/homepage.html?ref_=footer_hy_f_4" class="nav_a">Returns &amp; Replacements</a>
+                        </li>
+                        <li>
+                            <a href="/gp/digital/fiona/manage?ref_=footer_myk" class="nav_a">Manage Your Content and Devices</a>
+                        </li>
+                        <li>
+                            <a href="/gp/BIT/ref=footer_bit_v2_us_A0029?bitCampaignCode=A0029" class="nav_a">Amazon Assistant</a>
+                        </li>
+                        <li class="nav_last ">
+                            <a href="/gp/help/customer/display.html?nodeId=508510&amp;ref_=footer_gw_m_b_he" class="nav_a">Help</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-controler">
+                <div class="footer-wrap-logo">
+                    <a href="#">
+                        <img src="./img/logo.png" alt="" class="footer-logo">
+                    </a>
+                </div>
+                <div class="footer-control">
+                    <a href="#" class="footer-control-item" data-bs-toggle="modal" data-bs-target="#languageModal">
+                        <i class="ti-world"></i>
+                        <span>English</span>
+                    </a>
+                    <a href="#" class="footer-control-item">
+                        <i class="ti-money"></i>
+                        <span>USD - U.S.Dollar</span>
+                    </a>
+                    <a href="#" class="footer-control-item">
+                        <i class="ti-location-pin"></i>
+                        <span>United States</span>
+                    </a>
+                </div>
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="languageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content modal-language">
+                            <div class="modal-header modal-language-header">
+                                <i class="ti-world icon-col-language"></i>
+                                <h5 class="modal-title" id="languageModalLabel">Language Settings</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <h5 class="title-col-footer">Select your preferred language:</h5>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                <label class="form-check-label" for="exampleRadios1">
+                                                    English - EN
+                                                </label>
+                                            </div>
+                                            <hr class="dropdown-divider">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Español - ES
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    简体中文 - ZH
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Deutsch - DE
+                                                </label>
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                <label class="form-check-label" for="exampleRadios2">
+                                                    Português - PT
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-6">
+                                            <h5 class="title-col-footer">Translation</h5>
+                                            <p class="content-col-footer">
+                                                We'll translate the most important information for your browsing, shopping, and communications. Our translations are provided for your convenience. The English version of
+                                                <a href="#">Amazon.com</a>
+                                                , including our Conditions of Use, is the definitive version.
+                                                <a href="#">Learn more</a>
+                                            </p>
+                                            <h5 class="title-col-footer">Additional languages</h5>
+                                            <p class="content-col-footer">
+                                                More languages are available from other Amazon websites.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src ="~/js/site.js" ></script>
+    <script src="~/js/category.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

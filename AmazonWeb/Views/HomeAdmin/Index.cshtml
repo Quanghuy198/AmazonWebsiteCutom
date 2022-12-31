@@ -1,0 +1,38 @@
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_LayoutAdmin";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <h2>Danh sách sản phẩm</h2>
+        </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Danh mục</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Giá</th>
+                        <th>Nội dung</th>
+                        <th>Số lượng</th>
+                        <th>Giảm giá</th>
+                        <th>Ảnh</th>
+                        <th>Danh sách ảnh</th>
+                        <th>Sửa</th>
+                        <th>Xoá</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                  
+                </tbody>
+            </table>
+
+            <a asp-controller="HomeAdmin" asp-action="CreateProduct"  class="btn btn-primary">Thêm mới</a>
+        </div>
+    </div>
+</div>
+
